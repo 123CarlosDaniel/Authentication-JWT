@@ -23,7 +23,6 @@ app.use(express.urlencoded({ extended: false }))
 //middlewares
 app.use(express.json())
 app.use(cookieParser())
-
 app.use('/api', indexRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/register', registerRoutes)
@@ -31,4 +30,7 @@ app.use('/api/refresh', refreshRoutes)
 app.use('/api/logout', logoutRoutes)
 app.use(verifyToken)
 app.use('/api/protected', protectedRoutes)
+app.use((err,req,res,next) => {
+  return res.status(500)
+})
 export default app

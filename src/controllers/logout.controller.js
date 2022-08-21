@@ -6,7 +6,7 @@ export const handleLogout = async (req, res) => {
   try {
     const refreshToken = cookies.jwt
     await userModel.findOneAndUpdate({ refreshToken }, { refreshToken: '' }, { new: true })
-    res.clearCookie('jwt', { httpOnly: true, sameSite: 'Lax', secure: false })
+    res.clearCookie('jwt', { httpOnly: true, sameSite: 'strict', secure: !(process.env.NODE_ENV==='dev') })
     return res.sendStatus(202)
   } catch (error) {
     return res.status(500).json({ message: error.message })

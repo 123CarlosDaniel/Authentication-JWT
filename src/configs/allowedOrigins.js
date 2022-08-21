@@ -5,5 +5,5 @@ export const allowedOrigins = [
   'http://localhost:3500',
   'http://localhost:4173',
   'http://localhost:5173',
-  'http://localhost:*',
+  'https://mypokeapp.ml',
 ]

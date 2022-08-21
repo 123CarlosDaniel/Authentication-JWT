@@ -19,7 +19,12 @@ export const AuthController = async (req, res) => {
     const accessToken = jwt.sign({ id: user.id }, accessSecretToken, { expiresIn: '10s' })
     const refreshToken = jwt.sign({ id: user.id }, refreshSecretToken, { expiresIn: '1h' })
 
-    res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'Lax', secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 })
+    res.cookie('jwt', refreshToken, { 
+      httpOnly: true, 
+      sameSite: 'strict', 
+      secure: !(process.env.NODE_ENV==="dev"), 
+      maxAge: 1000 * 60 * 60 * 24 * 7 
+    })
     await User.findByIdAndUpdate(user.id, { refreshToken }, { new: true })
 
     res.status(202).json({ accessToken })
