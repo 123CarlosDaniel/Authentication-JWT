@@ -30,7 +30,5 @@ app.use('/api/refresh', refreshRoutes)
 app.use('/api/logout', logoutRoutes)
 app.use(verifyToken)
 app.use('/api/protected', protectedRoutes)
-app.use((err,req,res,next) => {
-  return res.status(500)
-})
+
 export default app
