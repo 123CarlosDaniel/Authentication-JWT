@@ -1,5 +1,4 @@
 import { allowedOrigins } from './allowedOrigins.js'
-const node_env = process.env.NODE_ENV
 
 const corsOptions = {
   origin: (origin, callback) => {

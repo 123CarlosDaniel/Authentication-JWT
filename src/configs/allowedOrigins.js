@@ -6,5 +6,4 @@ export const allowedOrigins = [
   'http://localhost:4173',
   'http://localhost:5173',
   'https://mypokeapp.ml',
-  'https://api-rest-authentication.herokuapp.com'
 ]
