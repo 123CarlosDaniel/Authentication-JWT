@@ -9,7 +9,7 @@ export const handleLogout = async (req, res) => {
     res.clearCookie('jwt', { httpOnly: true, sameSite: 'strict', secure: !(process.env.NODE_ENV==='dev') })
     return res.sendStatus(202)
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
     return res.status(500).json({ message: error.message })
   }
 }

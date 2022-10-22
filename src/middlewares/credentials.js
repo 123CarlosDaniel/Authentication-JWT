@@ -8,7 +8,7 @@ export const credentials = (req, res, next) => {
     }
     next()
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
     return res.status(500).json({ message: error.message })
   }
 }

@@ -29,7 +29,7 @@ export const AuthController = async (req, res) => {
 
     res.status(202).json({ accessToken })
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
     return res.status(500).json({ message: error.message })
   }
 }

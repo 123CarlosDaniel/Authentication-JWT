@@ -18,7 +18,7 @@ export const handleRefreshToken = async (req, res) => {
       res.json({ accessToken })
     })
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
     res.status(500).json({ message: err.message })
   }
 }
